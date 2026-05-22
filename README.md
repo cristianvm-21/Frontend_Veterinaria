@@ -1,4 +1,4 @@
-# README: Proyecto Veterinara Healthy Pets
+# README: Proyecto Veterinara
 
 <!-- Tabla de Contenido-->
 
@@ -7,13 +7,10 @@
 <!-- Lista con Contenido Deplegable-->
  <ol>
    <li><a href="#acerca-del-proyecto">Acerca del Proyecto<a></li>
-   <li><a href="#caracteristicas-principales">Características Principales<a></li>
-   <li><a href="#despligue">Despligue de la Apllicacion<a></li>
-   <li><a href="#jira">Jira<a></li>
-   <li><a href="#clonar-repositorio">Inicio Rapido 🚀</a></li>
-   <li><a href="#">Estructura del Proyecto 📁 </a></li>
-   <li><a href="#stack-tecnologico">Stack Tecnologico<a></li>
-   
+   <li><a href="#características-principales">Características Principales<a></li>
+   <li><a href="#instalar-dependencias-npm">Inicio Rapido 🚀</a></li>
+   <li><a href="#estructura-del-proyecto">Estructura del Proyecto 📁</a></li>
+   <li><a href="#stack-tecnológico">Stack Tecnológico<a></li>
  </ol>
 </details>
 
@@ -32,19 +29,6 @@ La aplicación busca ofrecer una solución centralizada que permita:
 - 🗃️ Registro y control de atenciones
 - 📦 Gestión de pacientes y servicios veterinarios
 - 💻 Interfaz amigable y responsiva
-
-## Despligue
-[VERCEL](https://hd-frontend-ten.vercel.app/)
-
-## Jira
-🔗 **Tablero Jira:**  
-[TABLERO JIRA](https://utp-team-herramientas-desarrollo.atlassian.net/jira/software/projects/SCRUM/boards/1?jql=assignee+%3D+empty&atlOrigin=eyJpIjoiNDE0MjA2YjY1NTg0NGNkZDk5YjY5MjYyNTM1MWM2YTciLCJwIjoiaiJ9)
-
-## Clonar Repositorio
-
-```git
-git clone https://github.com/Brunux-hub/HD_frontend.git
-```
 
 ## Instalar Dependencias NPM
 
@@ -68,17 +52,20 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Estructura Del Proyecto
 ````
-*HD_FRONTEND*/ 
+*FRONTEND_VETERINARIA*/ 
 ├── app/                   # Enrutador App de Next.js con grupos de rutas
 │   ├── (auth)/            # Rutas de autenticación
 │   ├── (dashboard)/       # Rutas protegidas del panel (dashboard)
-│   ├── (public)/          # Rutas de páginas públicas               
+│   ├── (public)/          # Rutas de páginas públicas
+│   ├── globals.css        # Estilos globales CSS
 ├── features/              # Organización basada en funcionalidades del sistema (componentes, etc)
-├── services/              # Rutas de API   
-└── lib/                   # Funciones utilitarias 
-├── _components/           # Componentes de UI compartidos
-├── data/                  # Archivos JSON para pruebas locales
 ├── assets/                # Recursos estaticos
+├── components/            # Componentes de UI compartidos
+├── hooks/                 # React Hooks personalizados
+├── lib/                   # Funciones utilitarias 
+├── public/                # Recursos publicos
+├── services/              # Archivos TS para conectar con Rutas API
+└── types/                 # Define la estructura de Entidades del Negocio
 └── styles/                # Estilos globales CSS
 ````
 
