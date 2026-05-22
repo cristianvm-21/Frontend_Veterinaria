@@ -1,0 +1,67 @@
+"use client";
+
+import { CirclePlus } from "lucide-react";
+
+import { useState } from "react";
+
+import SectionHeader from "../_components/SectionHeader";
+import ServiceTable from "./_components/ServiceTable";
+import ServiceFormDialog from "./_components/ServiceFormDialog";
+
+import { Servicio } from "@/types/servicio";
+
+import {
+  getServicios,
+  createServicio,
+  updateServicio,
+  deleteServicio,
+} from "@/services/servicios/storage";
+
+const ServicesPage = () => {
+  const [servicios, setServicios] = useState<Servicio[]>(() =>
+    typeof window === "undefined" ? [] : getServicios(),
+  );
+
+  const handleCreate = (servicio: Omit<Servicio, "id">) => {
+    const updated = createServicio(servicio);
+    setServicios(updated);
+  };
+
+  const handleUpdate = (id: number, servicio: Omit<Servicio, "id">) => {
+    const updated = updateServicio(id, servicio);
+    setServicios(updated);
+  };
+
+  const handleDelete = (id: number) => {
+    const updated = deleteServicio(id);
+    setServicios(updated);
+  };
+
+  return (
+    <div className="mx-auto flex max-w-295 flex-col gap-8 border px-4">
+      <SectionHeader
+        iconName="Icono Servicios"
+        iconLabel="Servicios"
+        title="Listado de Servicios"
+        description="Vista donde podrás revisar y gestionar los servicios"
+        action={
+          <ServiceFormDialog
+            mode="create"
+            icon={CirclePlus}
+            buttonColor="success"
+            onSubmit={handleCreate}
+          />
+        }
+      />
+
+      {/* TABLA DE SERVICIOS */}
+      <ServiceTable
+        servicios={servicios}
+        onEdit={handleUpdate}
+        onDelete={handleDelete}
+      />
+    </div>
+  );
+};
+
+export default ServicesPage;
